@@ -39,7 +39,7 @@ assert.equal(BEM('my-block').is('active', isActive), 'my-block');
 ```javascript
 import BEM from 'bem-chain-js';
 
-assert.equal(BEM('my-block').is('wide').is('active), 'my-block my-block--wide my-block--active');
+assert.equal(BEM('my-block').is('wide').is('active'), 'my-block my-block--wide my-block--active');
 ```
 
 
