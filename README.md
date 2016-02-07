@@ -1,7 +1,8 @@
-# bem-chain-js
-JavaScript helper for generating BEM class names with chainable API for adding modifiers and elements.
 
 [![Build Status](https://travis-ci.org/14islands/bem-chain-js.svg?branch=master)](https://travis-ci.org/14islands/bem-chain-js)
+
+# bem-chain-js
+JavaScript helper for generating BEM class names with chainable API for adding modifiers and elements.
 
 
 ## Basic Usage
@@ -18,7 +19,7 @@ assert.equal(BEM('my-block').el('element').is('active'), 'my-block__element my-b
 
 ## Conditional Modifiers
 
-Sometimes it's useful to decide if a modifier class should be present in runtime. The `is()` function takes an optional second parameter which specifies if the class should be added.
+Sometimes it's useful to decide if a modifier class should be present at runtime. The `is()` function takes an optional second parameter which specifies if the class should be added.
 
 ```javascript
 import BEM from 'bem-chain-js';
@@ -33,7 +34,9 @@ assert.equal(BEM('my-block').is('active', false), 'my-block');
 
 This helper was mainly developed to make it faster to write class names in JSX with React.
 
-A common use case is to automatically generated the "Block" name from the class name:
+A common use case is to match the CSS Block name with the JavaScript class name. 
+
+Simply pass the class instance `this` as the first argument to `BEM()` and the block name will be set to match the constructor name. This works for both ES5 and ES6 classes.
 
 ```javascript
 import BEM from 'bem-chain-js';
@@ -43,7 +46,7 @@ export class MyComponent {
     return (
       <div className={BEM(this).is('active', this.props.active)}>
         <h1 className={BEM(this).is('title')}>
-          My component title
+          My title
         </h1>
       </div>
     );
@@ -51,10 +54,10 @@ export class MyComponent {
 );
 ```
 
-Assuming, `this.props.active` is `true` this will output:
+Assuming `this.props.active` is `true` this will output:
 
 ```html
 <div class="MyComponent MyComponent--active">
-  <h1 class="MyComponent__title">My component title</h1>
+  <h1 class="MyComponent__title">My title</h1>
 </div>
 ```
