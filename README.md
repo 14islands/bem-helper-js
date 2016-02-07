@@ -24,9 +24,31 @@ Sometimes it's useful to decide if a modifier class should be present at runtime
 ```javascript
 import BEM from 'bem-chain-js';
 
-assert.equal(BEM('my-block'), 'my-block');
-assert.equal(BEM('my-block').is('active', true), 'my-block my-block--active');
-assert.equal(BEM('my-block').is('active', false), 'my-block');
+let isActive = true;
+
+assert.equal(BEM('my-block').is('active', isActive), 'my-block my-block--active');
+
+let isActive = false;
+
+assert.equal(BEM('my-block').is('active', isActive), 'my-block');
+```
+
+
+## Multiple Modifiers
+
+```javascript
+import BEM from 'bem-chain-js';
+
+assert.equal(BEM('my-block').is('wide').is('active), 'my-block my-block--wide my-block--active');
+```
+
+
+## Mix with non-BEM classes
+
+```javascript
+import BEM from 'bem-chain-js';
+
+assert.equal(BEM('my-block').is('wide').add('grid-wide'), 'my-block my-block--wide grid-wide');
 ```
 
 
