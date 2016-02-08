@@ -1,5 +1,5 @@
 {
-  "name": "bem-chain-js",
+  "name": "bem-helper-js",
   "version": "1.0.0",
   "description": "JavaScript helper for generating BEM class names with chainable API for adding modifiers and elements.",
   "main": "lib/index.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/14islands/bem-chain-js.git"
+    "url": "git+https://github.com/14islands/bem-helper-js.git"
   },
   "keywords": [
     "bem",
@@ -30,9 +30,9 @@
   "author": "David Lindkvist",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/14islands/bem-chain-js/issues"
+    "url": "https://github.com/14islands/bem-helper-js/issues"
   },
-  "homepage": "https://github.com/14islands/bem-chain-js#readme",
+  "homepage": "https://github.com/14islands/bem-helper-js#readme",
   "devDependencies": {
     "babel": "^5.8.23",
     "chai": "^3.3.0",
