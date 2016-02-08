@@ -88,8 +88,9 @@ Assuming `this.props.active` is `true` this will output:
 
 
 ## Collaborators
-https://github.com/ffdead
-https://github.com/filipstefansson
-https://github.com/og2t
-https://github.com/pudgereyem
-https://github.com/hjortureh
+
+* https://github.com/ffdead
+* https://github.com/filipstefansson
+* https://github.com/og2t
+* https://github.com/pudgereyem
+* https://github.com/hjortureh
