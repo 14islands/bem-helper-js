@@ -11,8 +11,9 @@ JavaScript helper for generating BEM class names with chainable API for adding m
 import BEM from 'bem-chain-js';
 
 assert.equal(BEM('my-block'), 'my-block');
-assert.equal(BEM('my-block').el('element'), 'my-block__element');
 assert.equal(BEM('my-block').is('active'), 'my-block my-block--active');
+
+assert.equal(BEM('my-block').el('element'), 'my-block__element');
 assert.equal(BEM('my-block').el('element').is('active'), 'my-block__element my-block__element--active');
 ```
 
