@@ -16,6 +16,8 @@ assert.equal(BEM('my-block').is('active'), 'my-block my-block--active');
 assert.equal(BEM('my-block').el('element').is('active'), 'my-block__element my-block__element--active');
 ```
 
+*Note: as of now, only one `.el()` can be used in the same chain and all modifiers applies to this element (even if they were added earlier in the chain).*
+
 
 ## Conditional Modifiers
 
@@ -83,3 +85,11 @@ Assuming `this.props.active` is `true` this will output:
   <h1 class="MyComponent__title">My title</h1>
 </div>
 ```
+
+
+## Collaborators
+https://github.com/ffdead
+https://github.com/filipstefansson
+https://github.com/og2t
+https://github.com/pudgereyem
+https://github.com/hjortureh
