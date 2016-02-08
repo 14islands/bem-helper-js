@@ -20,6 +20,16 @@ assert.equal(BEM('my-block').el('element').is('active'), 'my-block__element my-b
 *Note: as of now, only one `.el()` can be used in the same chain and all modifiers applies to this element (even if they were added earlier in the chain).*
 
 
+
+## Multiple Modifiers
+
+```javascript
+import BEM from 'bem-chain-js';
+
+assert.equal(BEM('my-block').is('wide').is('active'), 'my-block my-block--wide my-block--active');
+```
+
+
 ## Conditional Modifiers
 
 Sometimes it's useful to decide if a modifier class should be present at runtime. The `is()` function takes an optional second parameter which specifies if the class should be added.
@@ -36,14 +46,6 @@ let isActive = false;
 assert.equal(BEM('my-block').is('active', isActive), 'my-block');
 ```
 
-
-## Multiple Modifiers
-
-```javascript
-import BEM from 'bem-chain-js';
-
-assert.equal(BEM('my-block').is('wide').is('active'), 'my-block my-block--wide my-block--active');
-```
 
 
 ## Mix with non-BEM classes
