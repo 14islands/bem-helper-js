@@ -72,7 +72,7 @@ export class MyComponent {
   render() {
     return (
       <div className={BEM(this).is('active', this.props.active)}>
-        <h1 className={BEM(this).is('title')}>
+        <h1 className={BEM(this).el('title')}>
           My title
         </h1>
       </div>
