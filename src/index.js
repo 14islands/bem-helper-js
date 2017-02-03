@@ -6,37 +6,48 @@
   */
 
 class BEM {
-	constructor(block) {
+	constructor(block, element, modifiers = [], nonBemClasses = []) {
 		this.block = block;
-		this.element = undefined;
-		this.modifiers = [];
-		this.nonBemClasses = [];
+		this.element = element;
+		this.modifiers = modifiers;
+		this.nonBemClasses = nonBemClasses;
 	}
 
 	// Set element scope
 	el(elementIdentifier) {
+		let newBlock = this.clone()
 		if (typeof elementIdentifier !== 'undefined' 
 			&& elementIdentifier.toString().length) {
-			this.element = elementIdentifier;
+			newBlock.element = elementIdentifier;
 		}
-		return this;
+		return newBlock;
 	}
 
 	// Add BEM modifier
 	is(modifier, isOn = true) {
+		let modifiers = this.modifiers.slice();
 		isOn && typeof modifier !== 'undefined' 
 		     && modifier.toString().length
-		     && this.modifiers.push(modifier);
-		return this;
+		     && modifiers.push(modifier);
+		let newBlock = this.clone({
+			modifiers: modifiers,
+			nonBemClasses: this.nonBemClasses
+		})
+		return newBlock
 	}
 
 	// Add other non-BEM classname to the mix
 	add(className) {
+		let nonBemClasses = this.nonBemClasses.slice();
 		if (typeof className !== 'undefined' 
 			&& className.toString().length) {
-			this.nonBemClasses.push(className);
+			nonBemClasses.push(className);
 		}
-		return this;
+		let newBlock = this.clone({
+			nonBemClasses: nonBemClasses,
+			modifiers: this.modifiers
+		})
+		return newBlock
 	}
 
 	// Render BEM chain as full class name string
@@ -50,6 +61,10 @@ class BEM {
 			classes.push(extraClass);
 		}
 		return classes.join(' ');
+	}
+
+	clone(newBlock = {}) {
+		return new BEM(this.block, this.element, newBlock.modifiers, newBlock.nonBemClasses)
 	}
 }
 
